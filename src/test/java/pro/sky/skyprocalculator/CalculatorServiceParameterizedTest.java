@@ -4,11 +4,13 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
 
+import java.util.stream.IntStream;
+
 public class CalculatorServiceParameterizedTest {
     CalculatorServiceImpl calculatorService = new CalculatorServiceImpl();
 
-    public static int[] calculatorProvider() {
-        return new int[]{6, 7,-8,9,0};
+    public static IntStream calculatorProvider() {
+        return IntStream.rangeClosed(-5, 5);
     }
 
     @ParameterizedTest
