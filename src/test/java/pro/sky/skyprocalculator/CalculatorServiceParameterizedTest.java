@@ -2,16 +2,20 @@ package pro.sky.skyprocalculator;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
 
 import java.util.stream.IntStream;
+import java.util.stream.Stream;
 
 public class CalculatorServiceParameterizedTest {
     CalculatorServiceImpl calculatorService = new CalculatorServiceImpl();
 
-    public static IntStream calculatorProvider() {
-        return IntStream.rangeClosed(-5, 5);
+    public static Stream<Arguments> calculatorProvider() {
+        return Stream.of(Arguments.of(-2,-4),
+                Arguments.of(0,0));
     }
+
 
     @ParameterizedTest
     @MethodSource("calculatorProvider")
